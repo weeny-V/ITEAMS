@@ -1,0 +1,12 @@
+<div class='info'>
+  <app-spinner *ngIf='loading$ | async'></app-spinner>
+  <div *ngIf='info$ | async as info'>
+    <h3 class='info__name'>{{ info.breeds[0].name }}</h3>
+    <p>{{ info.breeds[0].description }}</p>
+    <p>{{ info.breeds[0].temperament }}</p>
+    <h4 class='info__name'>Weight</h4>
+    <p>Imperial: {{ info.breeds[0].weight.imperial }}</p>
+    <p>Metric: {{ info.breeds[0].weight.metric }}</p>
+    <a class='info__btn' [href]='info.breeds[0].wikipedia_url'>Go to Wikipedia</a>
+  </div>
+</div>

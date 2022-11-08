@@ -1,0 +1,21 @@
+<form [formGroup]='form' class='form'>
+  <mat-form-field class='form__breed' appearance='fill'>
+    <mat-label>Breed</mat-label>
+    <mat-select formControlName='breed' (selectionChange)='onChangeBreed()'>
+      <mat-option value=''>
+        All
+      </mat-option>
+      <mat-option *ngFor='let breed of breeds$ | async' [value]='breed.id'>
+        {{breed.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance='fill'>
+    <mat-label>Photos limit</mat-label>
+    <mat-select formControlName='limit' (selectionChange)='onChangeLimit()'>
+      <mat-option *ngFor='let page of pages' [value]='page'>
+        {{page}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>

@@ -1,0 +1,23 @@
+<mat-toolbar class='header' color='primary'>
+
+  <span>Cats Photos</span>
+
+  <nav class='header__nav'>
+    <a
+      class='header__link'
+      routerLink='/home'
+      routerLinkActive='header__link_active'>
+      Home
+    </a>
+    <a
+      class='header__link'
+      routerLink='/favorite'
+      routerLinkActive='header__link_active'>
+      Favorite
+    </a>
+  </nav>
+
+</mat-toolbar>
+
+<app-loader *ngIf='loading$ | async'></app-loader>
+<router-outlet></router-outlet>

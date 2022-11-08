@@ -1,0 +1,31 @@
+<div class='content'>
+  <app-filter-panel
+    (changeLimit)='changeLimit($event)' (changeBreed)='changeBreed($event)'>
+  </app-filter-panel>
+  <ul class='content__list'>
+    <li class='content__item' *ngFor='let photo of photos$ | async' (click)='openModal(photo.id)'>
+      <img
+        class='content__photo'
+        src='{{ photo.url }}'
+        alt='{{ photo.id }}'
+      >
+      <span
+        *ngIf='!photo.favorite'
+        class="material-icons content__icon md-48"
+        (click)='onLikePhoto($event, photo)'>
+        favorite
+      </span>
+      <span
+        *ngIf='photo.favorite'
+        class="material-icons content__icon content__icon_red md-48">
+        favorite
+      </span>
+    </li>
+  </ul>
+  <button
+    class='content__btn'
+    mat-raised-button color='primary'
+    (click)='loadMore()'>
+    Load More
+  </button>
+</div>

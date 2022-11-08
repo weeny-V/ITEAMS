@@ -1,0 +1,13 @@
+<ul class='favorite'>
+  <li class='favorite__item' *ngFor='let photo of photos$ | async' (click)='openModal(photo.image.id)'>
+    <img
+      class='favorite__photo'
+      src='{{ photo.image.url }}'
+      alt='{{ photo.image.id }}'
+    >
+    <span
+      class="material-icons favorite__icon md-48" (click)='deleteFavPhoto($event, photo)'>
+        close
+      </span>
+  </li>
+</ul>
